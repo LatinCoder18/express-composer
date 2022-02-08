@@ -1,0 +1,8 @@
+[
+    {
+        "path": "/users",
+        "middlewares": "",
+        "route": "../routes/users",
+        "type": "web"
+    }
+]
