@@ -2,8 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('../database/config');
 const { load } = require('./routerhandler');
-const { logger } = require('../middlewares/logger');
 const { systeminfo } = require('./systeminfo');
+const validarJSON = require('../middlewares/ValidateJSON');
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
 
 class Server {
     constructor() {
@@ -20,12 +22,11 @@ class Server {
     middlewares() {
         // Protección
         this.app.use(cors())
-        // Lectura y Parseo del Body    
-        this.app.use(express.json())
-        //Directorio Publico
+        this.app.use(morgan('tiny'))  
+        this.app.use(bodyParser.json())
+        this.app.use(bodyParser.urlencoded({ extended: true }))
+        this.app.use(validarJSON);
         this.app.use(express.static('public'))
-        //Terminal info about requests
-        this.app.use(logger)
     }
     async routes() {
         /**

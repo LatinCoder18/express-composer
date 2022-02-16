@@ -4,5 +4,11 @@
         "middlewares": "",
         "route": "../routes/users",
         "type": "web"
+    },
+    {
+        "path": "/",
+        "middlewares": "",
+        "route": "../routes/web",
+        "type": "web"
     }
 ]
