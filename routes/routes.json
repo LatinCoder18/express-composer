@@ -6,9 +6,9 @@
         "type": "web"
     },
     {
-        "path": "/",
+        "path": "/api/auth",
         "middlewares": "",
-        "route": "../routes/web",
+        "route": "../routes/auth",
         "type": "web"
     }
 ]
